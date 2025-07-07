@@ -1,16 +1,17 @@
-name: Build Electron App for macOS
+name: Build macOS App
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+    tags:
+      - 'v*.*.*' # Se ejecuta cuando hagas push de un tag v1.0.0
+  workflow_dispatch: # También permite ejecutarlo manualmente desde Actions
 
 jobs:
   build-mac:
     runs-on: macos-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -22,20 +23,14 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build the Electron app for macOS
-        run: npm run dist:mac
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Build Electron app for macOS
+        run: npm run dist:mac -- --publish=always
 
-      - name: List files in dist folder
-        run: ls -l dist/
-
-      - name: Upload macOS build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload .dmg to GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: macos-dmg
-          path: |
-                "dist/Terraza Launcher-setup-*.dmg"
-                "dist/Terraza-Launcher-setup-*.dmg"
+          files: dist/*.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
