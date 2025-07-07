@@ -2,7 +2,7 @@
   "name": "terraza-launcher",
   "version": "2.2.1",
   "description": "App description",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "dist:mac": "electron-builder build -m --publish never",
     "start": "electron ."
