@@ -39,7 +39,7 @@
   "devDependencies": {
     "electron": "^33.2.1",
     "electron-builder": "^25.1.8",
-    "dmg-license": "^1.0.11" // 👈 añadido para evitar el error
+    "dmg-license": "^1.0.11" 
   },
   "dependencies": {}
 }
