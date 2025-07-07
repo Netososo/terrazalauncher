@@ -1,20 +1,27 @@
 {
   "name": "terrazalauncher",
   "version": "2.2.1",
-  "description": "Terraza Launcher para macOS",
-  "main": "index.js",
-  "author": "Tu Nombre <tuemail@ejemplo.com>",
-  "license": "MIT",
+  "description": "Terraza Launcher for Windows, macOS, and Linux",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "dist:mac": "electron-builder build -m --publish never"
+    "dist:mac": "electron-builder build -m --publish never",
+    "dist:win": "electron-builder build -w --publish never",
+    "dist:linux": "electron-builder build -l --publish never"
   },
   "build": {
     "appId": "com.terraza.launcher",
     "productName": "Terraza Launcher",
-    "copyright": "Copyright © 2025 Tu Nombre",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!**/*.map"
+    ],
     "mac": {
       "category": "public.app-category.utilities",
       "target": [
@@ -22,22 +29,18 @@
         "zip"
       ]
     },
-    "dmg": {
-      "background": "build/background.png",
-      "icon": "build/icon.icns",
-      "contents": [
-        { "x": 130, "y": 220 },
-        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
-      ]
+    "win": {
+      "target": "nsis"
     },
-    "files": [
-      "src/**/*",
-      "package.json"
-    ]
+    "linux": {
+      "target": "AppImage"
+    }
   },
-  "dependencies": {},
   "devDependencies": {
     "electron": "^33.2.1",
-    "electron-builder": "^25.1.8"
-  }
+    "electron-builder": "^25.1.8",
+    "dmg-license": "^1.0.11" // 👈 añadido para evitar el error
+  },
+  "dependencies": {}
 }
+
