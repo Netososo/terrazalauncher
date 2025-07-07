@@ -3,18 +3,18 @@ updateAvailableTooltip = "Update Available"
 usernamePlaceholder = "Username"
 usernameEditButton = "Edit"
 settingsTooltip = "Settings"
-serverStatus = "SERVER"
+serverStatus = "SERVIDOR"
 serverStatusPlaceholder = "OFFLINE"
 mojangStatus = "MOJANG STATUS"
 mojangStatusTooltipTitle = "Services"
 mojangStatusNETitle = "Non&nbsp;Essential"
-newsButton = "NEWS"
-launchButton = "PLAY"
+newsButton = "NOVEDADES"
+launchButton = "JUGAR"
 launchButtonPlaceholder = "&#8226; No Server Selected"
 launchDetails = "Please wait.."
 newsNavigationStatus = "{currentPage} of {totalPages}"
 newsErrorLoadSpan = "Checking for News.."
-newsErrorFailedSpan = "Failed to Load News"
+newsErrorFailedSpan = "Error al cargar las noticias"
 newsErrorRetryButton = "Try Again"
 newsErrorNoneSpan = "No News"
 
@@ -41,7 +41,7 @@ loginWithMojang = "Login with Mojang"
 cancelButton = "Cancel"
 
 [ejs.overlay]
-serverSelectHeader = "Available Servers"
+serverSelectHeader = "Servidores Disponibles"
 serverSelectConfirm = "Select"
 serverSelectCancel = "Cancel"
 accountSelectHeader = "Select an Account"
@@ -168,7 +168,7 @@ loading = "Loading.."
 [js.landing.serverStatus]
 server = "SERVER"
 offline = "OFFLINE"
-players = "PLAYERS"
+players = "JUGADORES"
 
 [js.landing.systemScan]
 checking = "Checking system info.."
@@ -212,7 +212,7 @@ checking = "Checking for News"
 
 [js.landing.discord]
 loading = "Loading game.."
-joining = "Sailing to Westeros!"
+joining = "Sailing to Terraza!"
 joined = "Exploring the Realm!"
 
 [js.overlay]
