@@ -22,7 +22,6 @@
         "zip"
       ]
     },
-    "publish": null  // Esto desactiva la publicación automática
+    "publish": null
   }
 }
-
