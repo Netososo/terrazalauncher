@@ -1,17 +1,14 @@
 name: Build macOS App
 
 on:
-  push:
-    tags:
-      - 'v*.*.*' # Se ejecuta cuando hagas push de un tag v1.0.0
-  workflow_dispatch: # También permite ejecutarlo manualmente desde Actions
+  push:            # Se ejecuta en cada push
+    branches:
+      - master       # O la rama que uses
+  workflow_dispatch: # También puedes lanzarlo manualmente
 
 jobs:
   build-mac:
     runs-on: macos-latest
-
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -26,11 +23,10 @@ jobs:
         run: npm ci
 
       - name: Build Electron app for macOS
-        run: npm run dist:mac -- --publish=always
+        run: npm run dist:mac
 
-      - name: Upload .dmg to GitHub Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload .dmg as artifact
+        uses: actions/upload-artifact@v4
         with:
-          files: dist/*.dmg
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          name: macos-dmg
+          path: dist/*.dmg
