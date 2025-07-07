@@ -4,8 +4,8 @@
   "description": "App description",
   "main": "src/index.js",
   "scripts": {
-    "dist:mac": "electron-builder build -m --publish never",
-    "start": "electron ."
+  "dist:mac": "electron-builder build -m --publish never",
+  "start": "electron ."
   },
   "dependencies": {
     "electron": "^33.2.1"
