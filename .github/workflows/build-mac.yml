@@ -31,9 +31,9 @@ jobs:
         run: ls -l dist/
 
       - name: Upload macOS build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macos-dmg
           path: |
-            "dist/Terraza Launcher-setup-*.dmg"
-            "dist/Te
+                "dist/Terraza Launcher-setup-*.dmg"
+                "dist/Terraza-Launcher-setup-*.dmg"
