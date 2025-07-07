@@ -26,6 +26,8 @@ jobs:
 
       - name: Build the Electron app for macOS
         run: npm run dist:mac
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: List files in dist folder
         run: ls -l dist/
