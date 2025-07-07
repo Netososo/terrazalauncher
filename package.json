@@ -2,7 +2,7 @@
   "name": "terrazalauncher",
   "version": "2.2.1",
   "description": "Terraza Launcher para macOS",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": "Tu Nombre <tuemail@ejemplo.com>",
   "license": "MIT",
   "scripts": {
