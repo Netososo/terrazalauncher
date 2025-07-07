@@ -1,28 +1,43 @@
 {
-  "name": "terraza-launcher",
+  "name": "terrazalauncher",
   "version": "2.2.1",
-  "description": "App description",
-  "main": "index.js",
+  "description": "Terraza Launcher para macOS",
+  "main": "src/index.js",
+  "author": "Tu Nombre <tuemail@ejemplo.com>",
+  "license": "MIT",
   "scripts": {
-    "dist:mac": "electron-builder build -m --publish never",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder build -m --publish never"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "electron": "^33.2.1",
-    "electron-builder": "^25.1.8"
-  },
-  "author": "Terraza Studios", 
   "build": {
     "appId": "com.terraza.launcher",
     "productName": "Terraza Launcher",
+    "copyright": "Copyright © 2025 Tu Nombre",
     "mac": {
+      "category": "public.app-category.utilities",
       "target": [
         "dmg",
         "zip"
       ]
     },
-    "publish": null
+    "dmg": {
+      "background": "build/background.png",
+      "icon": "build/icon.icns",
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
   }
 }
-
