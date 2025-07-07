@@ -1,0 +1,34 @@
+name: Build Electron App for macOS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # coincide con tu engines
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the Electron app for macOS
+        run: npm run dist:mac
+
+      - name: Upload macOS build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos-build
+          path: dist/*.dmg
