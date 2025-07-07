@@ -4,15 +4,15 @@
   "description": "App description",
   "main": "src/index.js",
   "scripts": {
-  "dist:mac": "electron-builder build -m --publish never",
-  "start": "electron ."
+    "dist:mac": "electron-builder build -m --publish never",
+    "start": "electron ."
   },
-  "dependencies": {
-    "electron": "^33.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "electron": "^33.2.1",
     "electron-builder": "^25.1.8"
   },
+  "author": "Terraza Studios", 
   "build": {
     "appId": "com.terraza.launcher",
     "productName": "Terraza Launcher",
@@ -25,3 +25,4 @@
     "publish": null
   }
 }
+
