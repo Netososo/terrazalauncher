@@ -47,15 +47,16 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
-  },
+ },
   "build": {
-   "appId": "com.netososo.terrazalauncher",
-   "productName": "Terraza Launcher",
-   "mac": {
-    "target": [
-      "dmg",
-      "zip"
-    ],
-    "category": "public.app-category.games"
+    "appId": "com.netososo.terrazalauncher",
+    "productName": "Terraza Launcher",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.games"
+    }
   }
 }
